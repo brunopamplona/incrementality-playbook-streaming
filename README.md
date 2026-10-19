@@ -34,6 +34,9 @@ LTV** with no increase in total spend.
 > stated as explicit assumptions. See [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md).
 ---
 
+## 📊 Executive Presentation
+(docs/Video+%20Marketing%20Budget%20Where%20Money%20Really%20Works%20EN.pdf)
+
 ## 🎯 Problem Statement & Business Context
 
 Streaming platforms frequently encounter efficiency challenges in paid media due to:
