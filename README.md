@@ -193,3 +193,57 @@ Plan LTV / marginal CAC (contribution LTV): bundle 2.3x / 1.8x / 1.5x; Premiere 
 
 ## Roadmap
 Simulator -> naive attribution -> **geo-experiment** -> **calibrated MMM** -> **budget optimisation** -> **LTV bridge**. See [docs/ROADMAP.md](docs/ROADMAP.md).
+
+## Decision Framework: How This Changes the Allocation Process
+
+### The broken process (today)
+
+| Step | What happens |
+|---|---|
+| 1. Campaign runs | Channels report conversions via last-click |
+| 2. Dashboard review | Google reports ~R$ 69 CAC; Meta reports ~R$ 66 CAC |
+| 3. Budget decision | Team increases spend on "best-performing" channels |
+| 4. Hidden outcome | 50% of credited subs would have subscribed organically |
+
+Brand search and remarketing appear efficient on the dashboard (0.1× last-click bias)
+because they capture intent that already existed — not because they created it.
+
+### The corrected process (with incrementality)
+
+| Step | What happens |
+|---|---|
+| 1. Geo holdout experiment | Selected UFs go dark per channel; lift measured with diff-in-diff |
+| 2. True iCAC estimated | Incremental CAC replaces dashboard CAC as the allocation signal |
+| 3. Decision rule applied | If marginal iCAC > contribution LTV: cut or reallocate |
+| 4. Budget rebalanced | Spend moves to channels where marginal iCAC < blended average |
+
+### Optimal reallocation (same R$ 3.25M budget)
+
+Running `optimal_split()` along the true Hill response curves yields:
+
+| Channel | Current share | Optimal share | Direction |
+|---|---|---|---|
+| affiliates | 12% | 18% | ↑ +45% |
+| meta_advantage | 12% | 14% | ↑ +15% |
+| youtube | 20% | 22% | ↑ +8% |
+| meta_remarketing | 5% | 3% | ↓ −50% |
+| search_brand | 4% | 2% | ↓ −49% |
+| meta_reels_video | 8% | 5% | ↓ −31% |
+| pmax | 8% | 6% | ↓ −22% |
+| tv | 13% | 13% | → unchanged |
+
+**Contribution value gain: +1.9% → R$ 1,647,638/year in incremental LTV**  
+at the same total media budget, no additional spend required.
+
+> **Caveat:** this result depends on the assumed Hill response curves (see
+> `docs/ASSUMPTIONS.md`). The relative CAC ranking across channels is a
+> structural assumption — not a measurement. Stage 3 (geo-experiment) is
+> designed to replace these assumptions with experimentally validated lift
+> estimates, which would then calibrate the MMM (Stage 4) and produce a
+> defensible optimal allocation.
+
+### The decision rule (one sentence)
+
+> Allocate budget until each channel's **marginal incremental CAC** equals
+> the **contribution LTV** of the plan it acquires — then stop adding spend
+> to that channel and move the remainder to the next most efficient one.
