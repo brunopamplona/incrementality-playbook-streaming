@@ -188,7 +188,7 @@ Google platform (Google Ads + YouTube): dashboard proxy ~R$ 69 vs true increment
 
 Gain: +3.1% contribution value inside Meta (~R$ 0.5M/year of contribution LTV). Depends on the assumed incremental CACs per type; validate with Meta Conversion Lift tests.
 
-![Truth vs naive attribution by channel](docs/img/stage2_truth_vs_naive.png)
+![Truth vs naive attribution by channel](docs/img/chart_comparison.png)
 
 *Brand search and remarketing (last-click bars in orange) dwarf their true
 incremental contribution (dark blue). Naive regression overcredits YouTube
