@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 ![Domain](https://img.shields.io/badge/Domain-Marketing%20Science%20%26%20Growth-green.svg)
-![Status](https://img.shields.io/badge/Status-Completed-success.svg)
+![Status](https://img.shields.io/badge/Status-In%20Progress-orange.svg)
 
 ## 📌 Executive Summary
 
