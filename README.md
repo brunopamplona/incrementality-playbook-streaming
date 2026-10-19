@@ -35,7 +35,7 @@ LTV** with no increase in total spend.
 ---
 
 ## 📊 Executive Presentation
-(docs/Video+%20Marketing%20Budget%20Where%20Money%20Really%20Works%20EN.pdf)
+(https://github.com/brunopamplona/incrementality-playbook-streaming/blob/main/docs/Video+%20Marketing%20Budget%20Where%20Money%20Really%20Works%20EN.pdf)
 
 ## 🎯 Problem Statement & Business Context
 
