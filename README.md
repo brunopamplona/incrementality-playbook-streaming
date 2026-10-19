@@ -6,10 +6,32 @@
 
 ## 📌 Executive Summary
 
-This repository contains a prescriptive analysis and budget allocation optimization framework focused on acquiring new subscribers for video streaming platforms (*SVOD / Direct-to-Consumer*).
+A Brazilian SVOD platform spends **R$ 3.25M/month** on paid media and acquires
+**80,000 new subscribers/month** — but only **23% of those are truly incremental**
+to marketing. The remaining 77% would have subscribed organically.
 
-The primary goal of this project is to transition from traditional correlational attribution metrics (e.g., short-term ROAS / Last-Click) to an **allocation strategy grounded in true incrementality and Causal Inference**, maximizing new subscriber growth while maintaining the Customer Acquisition Cost (CAC) within operational targets.
+The core problem: the dashboard reports a blended CAC of ~R$ 69 (Google) and
+~R$ 66 (Meta). The true incremental CAC is **R$ 172 and R$ 206**, respectively —
+**2.5–3.1× what the platform believes it is paying**. Channels like brand search
+and remarketing show a last-click bias of **0.1×**: they capture intent that already
+existed, not demand they created.
 
+**This repository designs and validates the measurement system that corrects that.**
+
+Using a synthetic panel calibrated to real Brazilian streaming business parameters
+(3 years · daily · 27 UFs · 10 channels · 394 creatives), it benchmarks three
+attribution methods against a known ground truth, designs a geo holdout experiment
+to measure true lift, and runs a constrained budget optimisation along the true
+Hill response curves.
+
+**Key result:** reallocating the same R$ 3.25M/month budget — shifting spend from
+brand search (−49%) and remarketing (−50%) toward affiliates (+45%) and
+Meta Advantage+ (+15%) — delivers **+R$ 1,647,638/year in incremental contribution
+LTV** with no increase in total spend.
+
+> All data is synthetic. Business parameters (subscriber volume, budget mix,
+> plan prices, lifetimes and margins) are sourced from public benchmarks or
+> stated as explicit assumptions. See [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md).
 ---
 
 ## 🎯 Problem Statement & Business Context
