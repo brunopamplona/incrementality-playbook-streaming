@@ -98,6 +98,7 @@ incrementality-playbook-streaming/
 │   ├── test_simulator.py
 │   └── test_transforms.py
 └── README.md                        # Repository documentation
+```
 
 ## Datasets
 `make data` writes six synthetic datasets to `data/` (3 years, daily, 27 UFs, 10 channels): campaign-level spend, impressions, clicks, video views and platform-reported conversions; creative-level metrics and catalog (format, theme, promoted plan, hook, fatigue); business outcomes by plan; and the hidden ground truth. See [data/README.md](data/README.md). They are included in the repository so you can start analysing without running the simulator.
