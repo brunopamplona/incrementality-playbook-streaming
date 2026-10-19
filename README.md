@@ -188,6 +188,12 @@ Google platform (Google Ads + YouTube): dashboard proxy ~R$ 69 vs true increment
 
 Gain: +3.1% contribution value inside Meta (~R$ 0.5M/year of contribution LTV). Depends on the assumed incremental CACs per type; validate with Meta Conversion Lift tests.
 
+![Truth vs naive attribution by channel](docs/img/stage2_truth_vs_naive.png)
+
+*Brand search and remarketing (last-click bars in orange) dwarf their true
+incremental contribution (dark blue). Naive regression overcredits YouTube
+and brand search by 3–10×.*
+
 ## Real budget scenarios: R$ 2.5M-4M per month
 Public benchmarks give media prices (CPM/CPC), not streaming CAC, so the CAC level is **implied by the budget**: same ~18.4k incremental subs/month, higher spend means higher CAC. The relative CAC across channels is the simulator's assumption, to be measured by experiments (roadmap stage 3).
 
