@@ -1,9 +1,103 @@
-# Streaming Growth Lab
+# 🚀 Incrementality Playbook & Budget Optimization for Video Streaming
 
-**Can your marketing measurement recover the truth?**
-A synthetic streaming platform where the *true* incremental effect of every marketing channel, on every plan, is known. Measurement methods (last-click, regression, geo-experiments, MMM) are benchmarked against that truth instead of against each other.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![Domain](https://img.shields.io/badge/Domain-Marketing%20Science%20%26%20Growth-green.svg)
+![Status](https://img.shields.io/badge/Status-Completed-success.svg)
 
-![Truth vs naive attribution](docs/img/stage2_truth_vs_naive.png)
+## 📌 Executive Summary
+
+This repository contains a prescriptive analysis and budget allocation optimization framework focused on acquiring new subscribers for video streaming platforms (*SVOD / Direct-to-Consumer*).
+
+The primary goal of this project is to transition from traditional correlational attribution metrics (e.g., short-term ROAS / Last-Click) to an **allocation strategy grounded in true incrementality and Causal Inference**, maximizing new subscriber growth while maintaining the Customer Acquisition Cost (CAC) within operational targets.
+
+---
+
+## 🎯 Problem Statement & Business Context
+
+Streaming platforms frequently encounter efficiency challenges in paid media due to:
+- **Cannibalization & Biased Attribution:** Channels like *Search Brand* and *Retargeting* often claim credit for conversions that would have occurred organically.
+- **Media Saturation (Diminishing Returns):** Increasing spend in saturated channels degrades marginal efficiency due to non-linear saturation curves.
+- **Surface Metrics vs. Causal Impact:** Evaluating channel performance purely on ROAS without accounting for *Incremental ROAS (iROAS)*.
+
+---
+
+## 💡 Methodology & Key Frameworks
+
+The analytical approach combines advanced statistics, causal inference models, and mathematical programming for media portfolio optimization:
+
+1. **Current State Diagnostic:**
+   - Mapping the current acquisition channel ecosystem.
+   - Evaluating historical efficiency per channel.
+
+2. **Incrementality Modeling & Causal Inference:**
+   - Modeling saturation curves (e.g., Hill functions / Adstock transformations).
+   - Estimating marginal treatment effects (mROI / iROAS) by channel.
+
+3. **Prescriptive Budget Optimization:**
+   - Formulating a constrained optimization problem (Non-Linear Programming / SciPy Optimize).
+   - **Objective Function:** Maximize new subscribers ($N$).
+   - **Constraints:** Fixed total budget ($B$) and maximum allowable CAC ($CAC_{target}$).
+
+$$\max_{b_i} \sum_{i} f_i(b_i) \quad \text{subject to} \quad \sum_{i} b_i \le B$$
+
+---
+
+## 📈 Main Findings & Insights
+
+- **Recommended Reallocation:** Shifted budget away from low-incrementality / highly saturated channels into upper-funnel channels with untapped incremental potential.
+- **Marginal Efficiency:** Identified the inflection point of diminishing returns across each channel.
+- **Expected Lift:** Projected increase in new subscriber acquisition without increasing the total marketing budget.
+
+---
+
+## 📂 Project Structure
+
+```text
+incrementality-playbook-streaming/
+├── data/                            # Campaign, creative, and ground truth datasets
+│   ├── campaign_daily.csv.gz
+│   ├── creative_catalog.csv.gz
+│   ├── creative_daily.csv.gz
+│   ├── creative_truth.csv.gz
+│   ├── creative_truth_daily.csv.gz
+│   ├── ground_truth.csv.gz
+│   ├── outcomes_daily.csv.gz
+│   └── README.md
+├── docs/                            # Technical docs, assumptions, and roadmap
+│   ├── img/
+│   ├── ASSUMPTIONS.md
+│   └── ROADMAP.md
+├── scripts/                         # Execution scripts for stages and scenarios
+│   ├── export_datasets.py
+│   ├── run_budget_scenarios.py
+│   ├── run_economics.py
+│   └── run_stage1.py
+├── src/
+│   └── incrementality_playbook/     # Main Python source package
+│       ├── __init__.py
+│       ├── attribution.py
+│       ├── calibration.py
+│       ├── config.py
+│       ├── creatives.py
+│       ├── economics.py
+│       ├── export.py
+│       ├── funnel.py
+│       ├── optimize.py
+│       ├── plans.py
+│       ├── simulator.py
+│       ├── transforms.py
+│       └── truth.py
+├── tests/                           # Unit test suite
+│   ├── test_attribution.py
+│   ├── test_calibration.py
+│   ├── test_creative_causal.py
+│   ├── test_export.py
+│   ├── test_funnel.py
+│   ├── test_optimize.py
+│   ├── test_plans.py
+│   ├── test_simulator.py
+│   └── test_transforms.py
+└── README.md                        # Repository documentation
 
 ## Datasets
 `make data` writes six synthetic datasets to `data/` (3 years, daily, 27 UFs, 10 channels): campaign-level spend, impressions, clicks, video views and platform-reported conversions; creative-level metrics and catalog (format, theme, promoted plan, hook, fatigue); business outcomes by plan; and the hidden ground truth. See [data/README.md](data/README.md). They are included in the repository so you can start analysing without running the simulator.
